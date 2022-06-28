@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HFyMRaaNYS+cmFlTQQd6UoHWWoKzxZyzbv1PrMaHRjg=",
+  "Source": "Micro.API",
+  "BasePath": "_content/Micro.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
