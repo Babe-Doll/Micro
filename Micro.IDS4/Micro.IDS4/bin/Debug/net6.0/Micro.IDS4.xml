@@ -18,7 +18,7 @@
         </member>
         <member name="M:ClientInitConfig.GetClients">
             <summary>
-            定义验证条件的Client
+            定义可以通过验证的Client
             </summary>
             <returns></returns>
         </member>

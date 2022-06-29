@@ -5,9 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(); 
+builder.Services.AddSwaggerGen();
 
 #region IOC
+//https://localhost:7016/.well-known/openid-configuration
 builder.Services.AddIdentityServer()//ids4怎么用的
 .AddDeveloperSigningCredential()//临时生成的证书--即时生成的
 .AddInMemoryClients(ClientInitConfig.GetClients())//InMemory 内存模式
@@ -64,13 +65,13 @@ public class ClientInitConfig
     {
         return new ApiScope[]
           {
-                new ApiScope("scope1"),
-                new ApiScope("scope2"),
+                new ApiScope("api1", "My API"),//api名字
+                new ApiScope("api2"),
           };
     }
 
     /// <summary>
-    /// 定义验证条件的Client
+    /// 定义可以通过验证的Client
     /// </summary>
     /// <returns></returns>
     public static IEnumerable<Client> GetClients()
@@ -79,21 +80,36 @@ public class ClientInitConfig
         {
                 new Client
                 {
-                    ClientId = "clientid123",//客户端唯一标识 
-                    ClientSecrets = new [] { new Secret("elodia".Sha256()) },//客户端密码，进行了加密
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    //授权方式，客户端认证，只要ClientId+ClientSecrets
-                    AllowedScopes = new [] { "scope1" },//允许访问的资源
+                    ClientId = "client1",//客户端唯一标识 
+
+                    ClientSecrets = new [] {
+                        new Secret("Secret".Sha256())
+                    },//客户端密码，进行了加密
+
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,//授权方式，客户端认证，没有交互式用户，使用 clientid/secret 进行身份验证
+                     
+                    AllowedScopes = new [] { "api1" },//允许访问的资源 
                     
                     
                     Claims=new List<ClientClaim>(){
                         new ClientClaim(IdentityModel.JwtClaimTypes.Role,"Admin"),
-                        new ClientClaim(IdentityModel.JwtClaimTypes.NickName,"Eleven"),
-                        new ClientClaim("eMail","57265177@qq.com")
-                        //new ClientClaim(ClaimTypes.Role,"Admin"),
-                        //new ClientClaim(ClaimTypes.Name,"Eleven"),
-                        //new ClientClaim("eMail","57265177@qq.com")
+                        new ClientClaim(IdentityModel.JwtClaimTypes.NickName,"lala"),
+                        new ClientClaim("eMail","1@qq.com") 
                     }
+                },
+                new Client
+                {
+                    ClientId = "client2",//客户端唯一标识 
+
+                    ClientSecrets = new [] {
+                        new Secret("Secret2".Sha256())
+                    },//客户端密码，进行了加密
+
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,//授权方式，客户端认证，没有交互式用户，使用 clientid/secret 进行身份验证
+                     
+                    AllowedScopes = new [] { "api1","api2" },//允许访问的资源 
+                    
+                     
                 }
             };
     }
