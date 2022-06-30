@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Micro.API.DBContext;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,9 +11,15 @@ namespace Micro.API.Controller
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [AllowAnonymous]
+    //[Authorize] 
     public class TestController : ControllerBase
     {
+        private readonly MicroDBContext _context;
+        public TestController(MicroDBContext context)
+        {
+            _context = context;
+        }
         /// <summary>
         /// GET: api 
         /// </summary>
@@ -20,7 +27,8 @@ namespace Micro.API.Controller
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var users = _context.Users.ToList();
+            return users.Select(x => x.Name);
         }
 
         // GET api/<TestController>/5

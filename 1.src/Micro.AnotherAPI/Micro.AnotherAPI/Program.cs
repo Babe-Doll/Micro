@@ -34,7 +34,7 @@ builder.Services.AddAuthentication("Bearer")//scheme--表示通过Bearer方式来解析用
      .AddIdentityServerAuthentication(options =>
      {
          options.Authority = "https://localhost:7016";//ids4的地址--专门获取公钥
-         //options.ApiName = "Test";
+         //options.ApiName = "Test";//quick没这个
          options.RequireHttpsMetadata = false;// 不需要 https
      });//配置ids4
 
