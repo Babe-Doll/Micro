@@ -1,19 +1,19 @@
 ﻿{
   "Routes": [
     {
-      "DownstreamPathTemplate": "/todos/{id}",
+      "DownstreamPathTemplate": "/api/test", // 下游api项目的接口
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "jsonplaceholder.typicode.com",
-          "Port": 443
-        }
+          "Host": "localhost",
+          "Port": 6001 // 下游api项目，可以配置多个
+        } 
       ],
-      "UpstreamPathTemplate": "/todos/{id}",
+      "UpstreamPathTemplate": "/api/test", // 自定义模板
       "UpstreamHttpMethod": [ "Get" ]
     }
   ],
-  "GlobalConfiguration": {
+  "GlobalConfiguration": { //暂时不知道干嘛的
     "BaseUrl": "https://localhost:5000"
   }
 }

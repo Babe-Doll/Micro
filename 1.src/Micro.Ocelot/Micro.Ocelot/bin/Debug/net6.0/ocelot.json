@@ -1,0 +1,23 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/test", // 下游api项目的接口
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6001 // 下游api项目，可以配置多个
+        },
+        {
+          "Host": "localhost",
+          "Port": 6002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/test", // 自定义模板
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": { //暂时不知道干嘛的
+    "BaseUrl": "https://localhost:5000"
+  }
+}
