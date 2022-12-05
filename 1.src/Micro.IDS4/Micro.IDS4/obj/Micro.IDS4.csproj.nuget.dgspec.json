@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Demo\\Micro\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj": {}
+    "D:\\Demo\\Micro\\1.src\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj": {}
   },
   "projects": {
-    "D:\\Demo\\Micro\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj": {
+    "D:\\Demo\\Micro\\1.src\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Demo\\Micro\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj",
+        "projectUniqueName": "D:\\Demo\\Micro\\1.src\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj",
         "projectName": "Micro.IDS4",
-        "projectPath": "D:\\Demo\\Micro\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj",
-        "packagesPath": "C:\\Users\\86155\\.nuget\\packages\\",
-        "outputPath": "D:\\Demo\\Micro\\Micro.IDS4\\Micro.IDS4\\obj\\",
+        "projectPath": "D:\\Demo\\Micro\\1.src\\Micro.IDS4\\Micro.IDS4\\Micro.IDS4.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\Demo\\Micro\\1.src\\Micro.IDS4\\Micro.IDS4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\86155\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://172.20.10.148:8081/repository/Astec/": {},
+          "http://172.20.10.148:8081/repository/Astec": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
