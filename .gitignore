@@ -8,3 +8,15 @@ Micro.IDS4/.vs/ProjectEvaluation/
 Micro.IDS4/.vs/Micro.IDS4/FileContentIndex/
 
 Micro.IDS4/.vs/Micro.IDS4/v17/
+
+1.src/Micro.IDS4/Micro.IDS4/obj/Debug/net6.0/
+
+1.src/Micro.IDS4/Micro.IDS4/obj/
+
+1.src/Micro.Ocelot/Micro.Ocelot/obj/Debug/net6.0/
+
+1.src/Micro.Ocelot/Micro.Ocelot/obj/
+
+*.dll
+/1.src/Micro.IDS4/Micro.IDS4/bin/Debug/net6.0
+/1.src/Micro.IDS4/Micro.IDS4/Properties
