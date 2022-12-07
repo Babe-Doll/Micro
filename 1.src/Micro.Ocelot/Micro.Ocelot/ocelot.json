@@ -10,7 +10,15 @@
         }
       ],
       "UpstreamPathTemplate": "/{type}/api/test/{id}", // 自定义模板
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "FileCacheOptions": { //Ocelot中的缓存是对下游请求结果进行缓存处理，多次请求下游API时，在有效期内就可以从缓存中获取，提升服务性能。
+        "TtlSeconds": 10, //缓存有效期
+        "Region": "CacheRegion" //缓存区域名
+      },
+      "AuthenticationOptions": { //配置这个的就会验证
+        "AuthenticationProviderKey": "UserGatewayKey",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": { //暂时不知道干嘛的

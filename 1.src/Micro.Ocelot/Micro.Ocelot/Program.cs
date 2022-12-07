@@ -13,10 +13,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddOcelot();
 
 #region ids4
-var authenticationProviderKey = "UserGatewayKey";
+var authenticationProviderKey = "UserGatewayKey"; //配置的这个key跟配置文件一致
 builder.Services.AddAuthentication("Bearer")
    .AddIdentityServerAuthentication(authenticationProviderKey, options =>
    {
+       //指定要接入的授权服务器
        options.Authority = "http://localhost:7016";
        //options.ApiName = "UserApi";
        options.RequireHttpsMetadata = false;
