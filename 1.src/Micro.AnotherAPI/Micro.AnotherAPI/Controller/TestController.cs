@@ -10,8 +10,8 @@ namespace Micro.AnotherAPI.Controller
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
-    [AllowAnonymous]
+    [Authorize]
+    //[AllowAnonymous]
     public class TestController : ControllerBase
     {
         /// <summary>
@@ -28,7 +28,7 @@ namespace Micro.AnotherAPI.Controller
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value2";
+            return "这里是第二个api";
         }
 
         // POST api/<TestController>

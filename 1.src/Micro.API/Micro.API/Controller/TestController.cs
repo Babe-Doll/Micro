@@ -10,9 +10,8 @@ namespace Micro.API.Controller
     /// 测试
     /// </summary>
     [Route("api/[controller]")]
-    [ApiController]
-    
-    //[Authorize] 
+    [ApiController] 
+    [Authorize] 
     public class TestController : ControllerBase
     {
         private readonly MicroDBContext _context;
@@ -33,10 +32,10 @@ namespace Micro.API.Controller
 
         // GET api/<TestController>/5
         [HttpGet("{id}")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public string Get(int id)
         {
-            return "value";
+            return "这里是第一个api";
         }
 
         // POST api/<TestController>

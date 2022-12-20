@@ -34,7 +34,7 @@ builder.Services.AddAuthentication("Bearer")//scheme--表示通过Bearer方式来解析用
      .AddIdentityServerAuthentication(options =>
      {
          options.Authority = "https://localhost:7016";//ids4的地址--专门获取公钥
-         //options.ApiName = "Test";//quick没这个
+         options.ApiName = "Test2";//quick没这个 就是用scope的 定义这个或者定义这个+scope 或者单个scope都可以
          options.RequireHttpsMetadata = false;// 不需要 https
      });//配置ids4
 
@@ -45,7 +45,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("ApiScope", policy =>
     {
         policy.RequireAuthenticatedUser();
-        policy.RequireClaim("scope", "api2"); //配置的需要是ids4里配置有的
+        //policy.RequireClaim("scope", "api1"); //配置的需要是ids4里配置有的
     });
 });
 #endregion
@@ -65,7 +65,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllers()
-    .RequireAuthorization("ApiScope"); //如果上面配置了scope 这边要加
+    endpoints.MapControllers();
+    //.RequireAuthorization("ApiScope"); //如果上面配置了scope 这边要加
 });
 app.Run();
