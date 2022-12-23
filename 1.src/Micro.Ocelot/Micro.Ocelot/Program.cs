@@ -18,9 +18,9 @@ builder.Services.AddAuthentication("Bearer")
    .AddIdentityServerAuthentication(authenticationProviderKey, options =>
    {
        //指定要接入的授权服务器
-       options.Authority = "http://localhost:7016";
+       options.Authority = "https://localhost:7000";
        //options.ApiName = "UserApi";
-       options.RequireHttpsMetadata = false;
+       options.RequireHttpsMetadata = true;
        options.SupportedTokens = SupportedTokens.Both;
    });
 

@@ -33,7 +33,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddAuthentication("Bearer")//scheme--表示通过Bearer方式来解析用户信息
      .AddIdentityServerAuthentication(options =>
      {
-         options.Authority = "https://localhost:7016";//ids4的地址--专门获取公钥
+         options.Authority = "https://localhost:7000";//ids4的地址--专门获取公钥
          options.ApiName = "Test2";//quick没这个 就是用scope的 定义这个或者定义这个+scope 或者单个scope都可以
          options.RequireHttpsMetadata = false;// 不需要 https
      });//配置ids4
