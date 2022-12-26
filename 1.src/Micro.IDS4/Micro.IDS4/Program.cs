@@ -25,10 +25,10 @@ builder.Services.AddSwaggerGen();
 //.AddTestUsers(ClientInitConfig.GetUsers());
 
 //Êý¾Ý¿â  
-var migrationsAssembly = Assembly.GetEntryAssembly().GetName().Name;
+var migrationsAssembly = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
 var connectionString = builder.Configuration.GetConnectionString("mysql");
 
-builder.Services.AddDbContext<Ids4DbContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version())));
+builder.Services.AddDbContext<Ids4DbContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 29))));
 builder.Services.AddIdentity<SysUser, SysRole>().AddEntityFrameworkStores<Ids4DbContext>().AddDefaultTokenProviders();
 builder.Services.AddIdentityServer()
     .AddTestUsers(ClientInitConfig.GetUsers())
@@ -48,6 +48,7 @@ builder.Services.AddIdentityServer()
 
 var app = builder.Build();
 
+ClientInitConfig.InitializeDatabase(app);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
